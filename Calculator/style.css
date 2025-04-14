@@ -1,0 +1,109 @@
+/* Body Styling */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Calculator Container */
+.calculator {
+    background: #0f3460;
+    padding: 30px 25px;
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.3);
+    width: 320px;
+    animation: glowBox 3s infinite alternate;
+}
+
+/* Display Screen */
+#screen {
+    width: 100%;
+    height: 60px;
+    font-size: 2rem;
+    text-align: right;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    background: #1a1a2e;
+    color: #00fff7;
+    border: none;
+    outline: none;
+    box-shadow: inset 2px 2px 10px rgba(0, 255, 255, 0.1);
+}
+
+/* Button Grid */
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+/* Button Styling */
+button {
+    padding: 18px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    background: #00fff7;
+    color: #0f3460;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.2s, background 0.3s, box-shadow 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Button Glow Effect */
+button::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: linear-gradient(45deg, #00fff7, #6a00f4, #00c3ff);
+    background-size: 400%;
+    filter: blur(15px);
+    z-index: -1;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+    border-radius: 12px;
+}
+
+/* Hover Effect */
+button:hover {
+    transform: scale(1.08);
+    background: #007aff;
+    color: white;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+}
+
+button:hover::before {
+    opacity: 0.6;
+}
+
+/* Active Click Effect */
+button:active {
+    transform: scale(0.95);
+    background: #c200fb;
+    color: white;
+}
+
+/* Calculator Box Animation */
+@keyframes glowBox {
+    0% {
+        box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(0, 255, 255, 0.6);
+    }
+    100% {
+        box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+    }
+}
